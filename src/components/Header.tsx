@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Search, Heart, ShoppingCart, User, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
   wishlistCount: number;
@@ -19,13 +20,18 @@ export function Header({ wishlistCount, cartCount, onWishlistClick, onCartClick 
         <div className="flex h-16 items-center justify-between gap-4">
           {/* Logo */}
           <div className="flex items-center gap-6">
-            <h1 className="text-xl font-bold tracking-tight">DOMINE</h1>
+            <Link to="/">
+              <h1 className="text-xl font-bold tracking-tight hover:text-accent transition-colors cursor-pointer">DOMINE</h1>
+            </Link>
             
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-6">
-              <a href="#" className="text-sm font-medium text-accent hover:text-accent/80 transition-colors">
+              <Link to="/" className="text-sm font-medium text-accent hover:text-accent/80 transition-colors">
                 Men
-              </a>
+              </Link>
+              <Link to="/design" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
+                Design Your Own
+              </Link>
               <a href="#new" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
                 New Arrivals
               </a>
@@ -34,9 +40,6 @@ export function Header({ wishlistCount, cartCount, onWishlistClick, onCartClick 
               </a>
               <a href="#collections" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
                 Collections
-              </a>
-              <a href="#sale" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
-                Sale
               </a>
             </nav>
           </div>
@@ -106,11 +109,11 @@ export function Header({ wishlistCount, cartCount, onWishlistClick, onCartClick 
                 className="w-full"
               />
               <nav className="flex flex-col gap-2">
-                <a href="#" className="text-sm font-medium text-accent py-2">Men</a>
+                <Link to="/" className="text-sm font-medium text-accent py-2">Men</Link>
+                <Link to="/design" className="text-sm font-medium text-foreground hover:text-accent py-2">Design Your Own</Link>
                 <a href="#new" className="text-sm font-medium text-foreground hover:text-accent py-2">New Arrivals</a>
                 <a href="#bestsellers" className="text-sm font-medium text-foreground hover:text-accent py-2">Best Sellers</a>
                 <a href="#collections" className="text-sm font-medium text-foreground hover:text-accent py-2">Collections</a>
-                <a href="#sale" className="text-sm font-medium text-foreground hover:text-accent py-2">Sale</a>
               </nav>
             </div>
           </div>

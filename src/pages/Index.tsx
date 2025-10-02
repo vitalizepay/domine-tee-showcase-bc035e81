@@ -75,8 +75,8 @@ const Index = () => {
     toast.success("Removed from wishlist");
   };
 
-  const handleAddToCart = (productId: string, size: string) => {
-    setCart((prev) => [...prev, { productId, size }]);
+  const handleAddToCart = (productId: string, size?: string) => {
+    setCart((prev) => [...prev, { productId, size: size || "M" }]);
     toast.success("Added to cart");
   };
 
@@ -133,6 +133,7 @@ const Index = () => {
           wishlist={wishlist}
           onToggleWishlist={handleToggleWishlist}
           onQuickView={handleQuickView}
+          onAddToCart={handleAddToCart}
         />
       </div>
 

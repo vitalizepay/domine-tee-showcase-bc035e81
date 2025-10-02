@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Heart, Eye } from "lucide-react";
+import { Heart, Eye, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Product } from "@/data/products";
@@ -10,9 +10,10 @@ interface ProductCardProps {
   isWishlisted: boolean;
   onToggleWishlist: (productId: string) => void;
   onQuickView: (product: Product) => void;
+  onAddToCart: (productId: string) => void;
 }
 
-export function ProductCard({ product, isWishlisted, onToggleWishlist, onQuickView }: ProductCardProps) {
+export function ProductCard({ product, isWishlisted, onToggleWishlist, onQuickView, onAddToCart }: ProductCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   const getBadgeClass = (tag: string) => {
@@ -24,7 +25,7 @@ export function ProductCard({ product, isWishlisted, onToggleWishlist, onQuickVi
 
   return (
     <div 
-      className="group relative bg-card rounded-lg overflow-hidden hover-lift"
+      className="group relative bg-card rounded-lg overflow-hidden hover-lift hover-neck-animate"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -104,6 +105,16 @@ export function ProductCard({ product, isWishlisted, onToggleWishlist, onQuickVi
           <span className="text-base font-semibold">₹{product.price}</span>
           <span className="text-sm text-muted-foreground line-through">₹{product.mrp}</span>
         </div>
+
+        {/* Add to Cart Button */}
+        <Button 
+          className="w-full mt-2 bg-accent hover:bg-accent/90"
+          size="sm"
+          onClick={() => onAddToCart(product.id)}
+        >
+          <ShoppingCart className="h-4 w-4 mr-2" />
+          Add to Cart
+        </Button>
       </div>
     </div>
   );

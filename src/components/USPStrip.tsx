@@ -14,8 +14,8 @@ export function USPStrip() {
     },
     {
       icon: ShieldCheck,
-      title: "100% Cotton",
-      description: "Premium quality",
+      title: "Imported Fabrics",
+      description: "Premium quality from abroad",
     },
     {
       icon: Banknote,

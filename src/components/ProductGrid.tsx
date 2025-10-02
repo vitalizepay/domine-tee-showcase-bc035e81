@@ -6,9 +6,10 @@ interface ProductGridProps {
   wishlist: string[];
   onToggleWishlist: (productId: string) => void;
   onQuickView: (product: Product) => void;
+  onAddToCart: (productId: string) => void;
 }
 
-export function ProductGrid({ products, wishlist, onToggleWishlist, onQuickView }: ProductGridProps) {
+export function ProductGrid({ products, wishlist, onToggleWishlist, onQuickView, onAddToCart }: ProductGridProps) {
   return (
     <section className="py-8">
       <div className="container mx-auto px-4">
@@ -20,6 +21,7 @@ export function ProductGrid({ products, wishlist, onToggleWishlist, onQuickView 
               isWishlisted={wishlist.includes(product.id)}
               onToggleWishlist={onToggleWishlist}
               onQuickView={onQuickView}
+              onAddToCart={onAddToCart}
             />
           ))}
         </div>

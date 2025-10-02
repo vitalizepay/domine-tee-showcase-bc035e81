@@ -20,11 +20,11 @@ export function Hero({ onShopClick, onCollectionsClick }: HeroProps) {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Graphic & Solid Tees for Every Day
+              Premium Tees. Daily Comfort.
             </h1>
             
             <p className="text-lg text-muted-foreground max-w-lg">
-              100% cotton • Pre-shrunk • Fits from XS–XXL
+              Imported fabrics from abroad for the perfect fit and unmatched quality • 100% cotton • Pre-shrunk • Fits from XS–XXL
             </p>
 
             <p className="text-sm text-muted-foreground italic">
